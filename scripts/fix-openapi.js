@@ -18,7 +18,7 @@ try {
       description: 'Development server'
     },
     {
-      url: 'https://your-domain.com',
+      url: 'https://whisper-apii.onrender.com',
       description: 'Production server'
     }
   ];
