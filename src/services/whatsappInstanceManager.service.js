@@ -572,7 +572,7 @@ class WhatsAppInstance {
             // Add watermark
             // const finalMessage = `${messageText}\n\n> Sent via ${(s => s[0].toUpperCase() + s.slice(1, s.indexOf('-')))(packageJson.name)}\n> @${packageJson.author}/${packageJson.name}.git`;
 
-            const result = await this.sock.sendMessage(jid, { text: finalMessage });
+            const result = await this.sock.sendMessage(jid, { text: messageText });
 
             // Store sent message in database
             const messageData = {
@@ -640,7 +640,7 @@ class WhatsAppInstance {
             // const finalMessage = `${messageText}\n\n> Sent via ${(s => s[0].toUpperCase() + s.slice(1, s.indexOf('-')))(packageJson.name)}\n> @${packageJson.author}/${packageJson.name}.git`;
 
             // Send with additional options to handle encryption properly
-            const result = await this.sock.sendMessage(jid, { text: finalMessage }, { 
+            const result = await this.sock.sendMessage(jid, { text: messageText }, { 
                 ephemeralExpiration: 0,
                 messageId: undefined // Let Baileys generate the message ID
             });
