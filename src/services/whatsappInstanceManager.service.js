@@ -570,7 +570,7 @@ class WhatsAppInstance {
             logger.info(`📤 Sending message from ${this.instanceData.phone} to ${jid}: ${messageText}`);
 
             // Add watermark
-            const finalMessage = `${messageText}\n\n> Sent via ${(s => s[0].toUpperCase() + s.slice(1, s.indexOf('-')))(packageJson.name)}\n> @${packageJson.author}/${packageJson.name}.git`;
+            // const finalMessage = `${messageText}\n\n> Sent via ${(s => s[0].toUpperCase() + s.slice(1, s.indexOf('-')))(packageJson.name)}\n> @${packageJson.author}/${packageJson.name}.git`;
 
             const result = await this.sock.sendMessage(jid, { text: finalMessage });
 
@@ -637,7 +637,7 @@ class WhatsAppInstance {
             }
 
             // Add watermark  
-            const finalMessage = `${messageText}\n\n> Sent via ${(s => s[0].toUpperCase() + s.slice(1, s.indexOf('-')))(packageJson.name)}\n> @${packageJson.author}/${packageJson.name}.git`;
+            // const finalMessage = `${messageText}\n\n> Sent via ${(s => s[0].toUpperCase() + s.slice(1, s.indexOf('-')))(packageJson.name)}\n> @${packageJson.author}/${packageJson.name}.git`;
 
             // Send with additional options to handle encryption properly
             const result = await this.sock.sendMessage(jid, { text: finalMessage }, { 
@@ -720,13 +720,13 @@ class WhatsAppInstance {
                 case 'image':
                     messageContent = {
                         image: { url },
-                        caption: caption ? `${caption}\n\n> Sent via ${(s => s[0].toUpperCase() + s.slice(1, s.indexOf('-')))(packageJson.name)}\n> @${packageJson.author}/${packageJson.name}.git` : undefined
+                        caption: caption ? caption : undefined
                     };
                     break;
                 case 'video':
                     messageContent = {
                         video: { url },
-                        caption: caption ? `${caption}\n\n> Sent via ${(s => s[0].toUpperCase() + s.slice(1, s.indexOf('-')))(packageJson.name)}\n> @${packageJson.author}/${packageJson.name}.git` : undefined
+                        caption: caption ? caption : undefined
                     };
                     break;
                 case 'audio':
@@ -739,7 +739,7 @@ class WhatsAppInstance {
                     messageContent = {
                         document: { url },
                         fileName: filename || 'document',
-                        caption: caption ? `${caption}\n\n> Sent via ${(s => s[0].toUpperCase() + s.slice(1, s.indexOf('-')))(packageJson.name)}\n> @${packageJson.author}/${packageJson.name}.git` : undefined
+                        caption: caption ? caption : undefined
                     };
                     break;
                 default:
